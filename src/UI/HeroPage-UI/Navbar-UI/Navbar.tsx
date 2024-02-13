@@ -8,8 +8,10 @@ const Navbar: React.FC = function () {
   return (
     <nav className={style.navbar_wrapper}>
         <NavbarTitle />
-        <NavbarLinks />
-        <NavbarAuths />
+        <div className={style.navbar_link_section}>
+            <NavbarLinks />
+            <NavbarAuths />
+        </div>
     </nav>
   )
 }

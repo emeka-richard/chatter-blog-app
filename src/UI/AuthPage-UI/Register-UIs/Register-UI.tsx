@@ -1,10 +1,11 @@
 import React from 'react'
-import RegisterTitle from './Register-Form-UIs/Register-Title'
+import style from "./register.module.css"
+import RegisterTitle from './Register-Title'
 import RegisterForm from './Register-Form-UIs/Register-Form'
 
 const RegisterFormUI: React.FC = function () {
   return (
-    <section>
+    <section className={style.register_ui_wrapper}>
       <RegisterTitle />
       <RegisterForm />
     </section>

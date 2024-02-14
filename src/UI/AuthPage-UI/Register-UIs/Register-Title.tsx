@@ -1,5 +1,5 @@
 import React from 'react'
-import style from "../register.module.css"
+import style from "./register.module.css"
 
 function RegisterTitle() {
     const title:string = "Register as a Writer/Reader"

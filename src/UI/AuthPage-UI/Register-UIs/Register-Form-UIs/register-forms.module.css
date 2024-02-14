@@ -1,3 +1,13 @@
+/* Register Form CSS */
+.register_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+
+
 /* Register Inputs CSS */
 .register_input_wrapper {
     width: 100%;
@@ -205,5 +215,43 @@
 
 /* Register Google Button CSS */
 .register_google_container {
-    
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid var(--default-grey-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.register_google_p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--primary-black);
+}
+
+
+
+
+/* Register LinkedIn Button CSS */
+.register_linkedIn_container {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid var(--default-grey-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.register_linkedIn_logo{
+    font-size: 26px;
+    color: var(--active-blue);
+}
+.register_linkedIn_p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--primary-black);
 }

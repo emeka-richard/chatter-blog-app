@@ -2,16 +2,20 @@ import React from 'react';
 import { useRouteError } from 'react-router-dom';
 
 const ErrorPage: React.FC = () => {
-    const error = useRouteError() as { statusText?: string, message?: string };  console.error(error);
+    const error = useRouteError() as { status?: number, statusText?: string, message?: string };  console.error(error);
 
   return (
-    <div id="error-page">
+    <section id="error-page">
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
+      <p>{error.status}:  
+        <i>{" " + error.statusText || error.message}</i>
       </p>
-    </div>
+
+      
+      {/* Make sure to implement route link going back to the exact point you left */}
+      <button className='btn'>Go back</button>
+    </section>
   );
 };
 

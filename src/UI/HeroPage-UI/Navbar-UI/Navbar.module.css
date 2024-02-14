@@ -5,9 +5,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 5rem;
+    padding: 1rem 7rem;
     position: fixed;
     z-index: 1;
+    background-color: var(--default-grey-color);
 }
 
 /* Navbar Title */
@@ -78,4 +79,5 @@
 
 .auth_signup {
     background-color: var(--purple-color);
+    color: var(--primary-white);
 }

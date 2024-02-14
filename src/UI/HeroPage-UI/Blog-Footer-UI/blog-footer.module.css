@@ -78,15 +78,11 @@
   justify-content: space-between;
   background-color: var(--off-white);
 }
-.footer_title_container {
-}
 .footer_title_h2 {
     font-size: 48px;
     font-weight: 700;
     line-height: 72px;
     color: var(--purple-color);
-}
-.footer_others_container {
 }
 .footer_explore_container,
 .footer_support_container,
@@ -98,8 +94,6 @@
   justify-content: flex-start;
   gap: 24px;
 }
-.footer_explore_container {
-}
 .footer_h4 {
     font-weight: 500;
     font-size: 24px;
@@ -109,8 +103,4 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-}
-.footer_support_container {
-}
-.footer_blog_container {
 }

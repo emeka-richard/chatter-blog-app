@@ -1,5 +1,13 @@
 
-.register_ui_wrapper
+.register_ui_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 24px; 
+}
 
 
 

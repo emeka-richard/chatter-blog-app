@@ -6,7 +6,7 @@ const AuthLinks: React.FC = function () {
   return (
       <div className={style.auth_link_container}>
         <NavLink
-          to={"/register"}
+          to={"/auth/sign/register"}
           style={({ isActive }) => ({
             borderBottom: isActive ? `4px solid var(--purple-color)` : "none",
             transition: `all 200ms ease-in-out`,
@@ -16,7 +16,7 @@ const AuthLinks: React.FC = function () {
           REGISTER
         </NavLink>
         <NavLink
-          to={"/login"}
+          to={"/auth/sign/login"}
           style={({ isActive }) => ({
             borderBottom: isActive ? `4px solid var(--purple-color)` : "none",
             transition: `all 200ms ease-in-out`,

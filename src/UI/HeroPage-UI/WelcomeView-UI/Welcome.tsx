@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./welcome.module.css";
+import { NavLink } from "react-router-dom";
 
 const Welcome: React.FC = function () {
   const firstNote: string =
@@ -13,7 +14,7 @@ const Welcome: React.FC = function () {
       <div className={style.welcome_inner_container}>
         <h2 className={style.welcome_h2}>{firstNote}</h2>
         <p className={style.welcome_p}>{secondNote}</p>
-        <button className={style.welcome_button}>Get started</button>
+        <NavLink to={"/auth/sign/register"} className={style.welcome_button}>Get started</NavLink>
       </div>
       </div>
     </section>

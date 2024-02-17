@@ -1,5 +1,6 @@
 import React from 'react';
 import style from "./blog-footer.module.css"
+import { Link } from 'react-router-dom';
 
 interface FooterItem {
   item1: string;
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
 
   return (
     <section className={style.footer_wrapper}>
-        <h2 className={style.footer_title_h2}>{title}</h2>
+        <Link to={"/"} className={style.footer_title_h2}>{title}</Link>
         <ul className={style.footer_explore_container}>
           <h4 className={style.footer_h4}>Explore</h4>
           <li className={style.footer_item}>{footerItems.item1}</li>

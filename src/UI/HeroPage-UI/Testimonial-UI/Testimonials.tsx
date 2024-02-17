@@ -1,6 +1,7 @@
 import React from 'react';
 import user1 from '../../../assets/images/user-1.png';
 import style from "./testimonials.module.css"
+import { NavLink } from 'react-router-dom';
 
 interface TestimonialProps {
   name: string;
@@ -29,7 +30,7 @@ const Testimonials: React.FC = () => {
             {userTestimonialProp.workPlace}
           </p>
         </div>
-        <button className={style.testimonial_btn}>Join chatter</button>
+        <NavLink to={"/auth/sign/register"} className={style.testimonial_btn}>Join chatter</NavLink>
       </div>
     </section>
   );

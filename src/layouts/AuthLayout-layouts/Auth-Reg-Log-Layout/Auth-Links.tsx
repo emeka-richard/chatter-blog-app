@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import style from "./authLayout.module.css";
+import style from "../authLayout.module.css";
 
 const AuthLinks: React.FC = function () {
   return (

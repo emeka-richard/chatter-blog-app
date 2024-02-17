@@ -1,13 +1,15 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import HeroPageLayout from "../layouts/HeroPageLayout";
-import AuthLayout from "../layouts/AuthLayout/AuthLayout";
-import AppLayout from "../layouts/AppLayout";
+import AuthLayout from "../layouts/AuthLayout-layouts/AuthLayout";
+import AppLayout from "../layouts/AppLayout-layouts/AppLayout";
 import ErrorPage from "../UI/Error-Page";
 import HeroPageUI from "../UI/HeroPage-UI/HeroPage-UI";
 import RegisterUI from "../UI/AuthPage-UI/Register-UIs/Register-UI";
-import AuthFrame from "../layouts/AuthLayout/Auth-Frame";
-import AuthRegLogFrame from "../layouts/AuthLayout/Auth-Reg-Log-Layout/Auth-Reg-Log-Frame";
-import AuthAccountVerfication from "../layouts/AuthLayout/Auth-Accout-Verify-Layout/Auth-acct-verfication";
+import AuthFrame from "../layouts/AuthLayout-layouts/Auth-Frame";
+import AuthRegLogFrame from "../layouts/AuthLayout-layouts/Auth-Reg-Log-Layout/Auth-Reg-Log-Frame";
+import AuthAccountVerfication from "../layouts/AuthLayout-layouts/Auth-Accout-Verify-Layout/Auth-acct-verfication";
+import LoginUI from "../UI/AuthPage-UI/Login-UI/Login-UI";
+import FeedsUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-UI";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +38,8 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "/auth/sign/login",
-                // element: <RegisterUI />,
-                element: <div>This is where the login form is displayed</div>,
+                element: <LoginUI />,
+                // element: <div>This is where the login form is displayed</div>,
               },
               {
                 path: "/auth/sign/register",
@@ -60,8 +62,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
-        element: <HeroPageUI />,
+        path: "/feeds",
+        element: <FeedsUI />,
+        // element: <div>We'll be setting this up later</div>,
       },
     ],
   },

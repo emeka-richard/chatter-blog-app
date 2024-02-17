@@ -60,7 +60,7 @@
     align-items: center;
     justify-content: flex-start;
     background-color: var(--primary-white);
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 .frame_inner_wrapper {
     width: 100%;
@@ -75,6 +75,7 @@
 /* Auth Layout Links CSS */
 .auth_link_container {
     width: 100%;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;

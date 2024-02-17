@@ -3,6 +3,7 @@ import user3 from '../../../assets/images/user-3.png';
 import user4 from '../../../assets/images/user-4.png';
 import user2 from '../../../assets/images/user-2.png';
 import style from "./blog-footer.module.css"
+import { NavLink } from 'react-router-dom';
 
 
 const Blogs: React.FC = function () {
@@ -22,7 +23,7 @@ const Blogs: React.FC = function () {
             <div className={style.blog_text_section}>
                 <h2 className={style.blog_text_h2}>{title}</h2>
                 <p className={style.blog_text_p}>{note1}</p>
-                <button className={style.blog_btn}>Get started</button>
+                <NavLink to={"/auth/sign/register"} className={style.blog_btn}>Get started</NavLink>
             </div>
         </div>
     </section>

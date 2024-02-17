@@ -65,6 +65,7 @@
   font-size: 18px;
   line-height: 26px;
   color: var(--primary-white);
+  text-decoration: none;
 }
 
 
@@ -83,6 +84,7 @@
     font-weight: 700;
     line-height: 72px;
     color: var(--purple-color);
+    text-decoration: none;
 }
 .footer_explore_container,
 .footer_support_container,

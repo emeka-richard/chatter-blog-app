@@ -1,0 +1,29 @@
+/* Feeds UI CSS */
+.feed_UI_wrapper {
+    width: 100%;
+    margin: 36px;
+    border: 1px solid var(--just-grey);
+    padding: 40px 100px;
+}
+
+
+
+/* Feeds Header UI CSS */
+.feed_header_wrapper {
+
+}
+.feed_header_texts_container {
+
+}
+.feed_header_texts_h3 {
+
+}
+.feed_header_texts_p {
+
+}
+.feed_header_btn {
+
+}
+.feed_header_btn_p {
+
+}

@@ -1,11 +1,24 @@
 import React from 'react'
 import style from "./feeds-UI.module.css"
 import FeedHeaderUI from './Feeds-header-UI'
+import FeedsNavLinkUI from './Feeds-NavLink-UI'
+import { Outlet } from 'react-router-dom'
+
+// interface FeedsUIProps {
+//   children: ReactNode;
+// }
+
+// const FeedsUI: React.FC<FeedsUIProps> = ({ children }) => {
+
 
 const FeedsUI:React.FC = function () {
   return (
       <section className={style.feed_UI_wrapper}>
-        <FeedHeaderUI />
+        <div className={style.feed_UI_container}>
+          <FeedHeaderUI />
+          <FeedsNavLinkUI />
+          <Outlet />
+        </div>
       </section>
   )
 }

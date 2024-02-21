@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./feeds-UI.module.css";
 import graceIMG from "../../../assets/images/grace-article-img.png";
 import oluwatobiIMG from "../../../assets/images/oluwatobi-article-img.png";
@@ -14,7 +14,7 @@ import { ReactComponent as DarkChart } from "../../../assets/svg/darkClearChartI
 interface WriterProps {
   id: number;
   name: string;
-  writerAVI: string
+  writerAVI: string;
   occupation: string;
   publicationTime: string;
   readingTime: string;
@@ -27,7 +27,15 @@ interface WriterProps {
 }
 
 const FeedsForYouContentUI: React.FC = function () {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
+  const handleViewEnter = (): void => {
+    setIsHovered(!isHovered);
+  };
+
+  // const handleMouseLeave = (): void => {
+  //   setIsHovered(false);
+  // };
 
   const getDate = (date: string) => {
     return new Date(date).toDateString().slice(4, 15);
@@ -71,7 +79,8 @@ const FeedsForYouContentUI: React.FC = function () {
       occupation: "Political analyst",
       publicationTime: getDate("May 21, 2023"),
       readingTime: "10",
-      publicatonArticleTitle: "The Impact of social media on Political discourse",
+      publicatonArticleTitle:
+        "The Impact of social media on Political discourse",
       publicationArticle:
         "In the era of digital communication, social media platforms have become pervasive in our daily lives, revolutionizing the way we connect, share information, and engage with the world.",
       publicationIMG: adebobolaIMG,
@@ -89,7 +98,11 @@ const FeedsForYouContentUI: React.FC = function () {
             <div className={style._inner_wrapper}>
               <header className={style._header_container}>
                 <div className={style._writer_infos_container}>
-                  <img src={article.writerAVI} alt="writer.png" className={style._writer_img} />
+                  <img
+                    src={article.writerAVI}
+                    alt="writer.png"
+                    className={style._writer_img}
+                  />
                   <div className={style._writerTxt_infos}>
                     <h3 className={style._writerTxt_h3}>{article.name}</h3>
                     <p className={style._writerTxt_p}>
@@ -98,20 +111,25 @@ const FeedsForYouContentUI: React.FC = function () {
                   </div>
                 </div>
                 {/* <div className={style._article_title_container}> */}
-                  <h1 className={style._article_title}>
-                    {article.publicatonArticleTitle}
-                  </h1>
-                  <div className={style._article_readTime_container}>
-                    <OpenBookIcon />
-                    <small className={style._article_readTime}>
-                      {article.readingTime} mins read
-                    </small>
-                  </div>
+                <h1 className={style._article_title}>
+                  {article.publicatonArticleTitle}
+                </h1>
+                <div className={style._article_readTime_container}>
+                  <OpenBookIcon />
+                  <small className={style._article_readTime}>
+                    {article.readingTime} mins read
+                  </small>
+                </div>
                 {/* </div> */}
               </header>
               <article className={style._article_container}>
-              <p className={style._article_main}>{article.publicationArticle}</p>
-                <div className={style._article_img_div} style={{backgroundImage: `url(${article.publicationIMG})`}}></div>
+                <p className={style._article_main}>
+                  {article.publicationArticle}
+                </p>
+                <div
+                  className={style._article_img_div}
+                  style={{ backgroundImage: `url(${article.publicationIMG})` }}
+                ></div>
                 <div className={style._article_props_wrapper}>
                   <div className={style._article_comment_prop_container}>
                     <CommentIcon />
@@ -125,8 +143,11 @@ const FeedsForYouContentUI: React.FC = function () {
                       {article.publicationLikes}
                     </p>
                   </div>
-                  <div className={style._article_views_prop_container}>
-                    <DarkChart />
+                  <div title="View post analytics"
+                    className={style._article_views_prop_container}
+                  >
+                    <DarkChart
+                    />
                     <p className={style._article_views_prop}>
                       {article.publicationViews}
                     </p>

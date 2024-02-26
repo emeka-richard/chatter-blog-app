@@ -1,4 +1,4 @@
-import { Navigate, Route, createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import HeroPageLayout from "../layouts/HeroPageLayout";
 import AuthLayout from "../layouts/AuthLayout-layouts/AuthLayout";
 import AppLayout from "../layouts/AppLayout-layouts/AppLayout";
@@ -13,6 +13,10 @@ import FeedsUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-UI";
 import FeedsForYouContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-ForYou-Content-UI";
 import FeedsFeaturedContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-Featured-Content-UI";
 import FeedsRecentContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feed-Recent-Content-UI";
+// import CreateArticleUI from "../UI/AppLayout-UI/Create-Article-UIs/Create-Article-UI";
+import CreatePostUI from "../UI/AppLayout-UI/Create-Article-UIs/Create-Post-UI";
+import PublishArticleLayout from "../layouts/PublishArticleLayout";
+import ArticlePreview from "../UI/AppLayout-UI/Create-Article-UIs/Preview-Article-UI";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +73,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/feeds",
-        // element: '',
         element: <FeedsUI />,
         
         children: [
@@ -91,6 +94,26 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "/article",
+        element: <PublishArticleLayout />,
+        children: [
+          {
+            path: "/article/publish",
+            element: <CreatePostUI />
+          },
+          {
+            path: "/article/preview",
+            element: <ArticlePreview />
+          },
+
+        ]
+        // element: <CreateArticleUI />
+      },
+      // {
+      //   path: "/preview",
+      //   element: <CreateArticleUI />
+      // },
     ],
   },
 ]);

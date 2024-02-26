@@ -14,4 +14,45 @@
 }
 
 
-
+/* Publish Artice Layout CSS */
+.create_post_wrapper {
+    width: 100%;
+    min-height: 85vh;
+    height: max-content;
+    padding: 36px;
+    padding-right: 0;
+    }
+  .create_post_container {
+    width: 100%;
+    min-height: 85vh;
+    height: max-content;
+    border: 1px solid var(--just-grey);
+    padding: 50px 120px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .create_post_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+  .create_post_header_btn {
+    width: 144px;
+    height: 58px;
+    background-color: var(--purple-color);
+    color: var(--primary-white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+  }

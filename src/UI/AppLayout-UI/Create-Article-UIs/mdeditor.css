@@ -1,0 +1,42 @@
+.w-md-editor {
+    border-radius: 1.5rem;
+    background-color: #191919 !important;
+    font-family: Inter, sans-serif !important;
+  }
+  
+  .w-md-editor-toolbar {
+    background-color: #191919 !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid #000 !important;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+  
+  .w-md-editor-content {
+    padding: 1rem;
+    resize: none !important;
+  }
+  
+  .wmde-markdown-color {
+    background-color: #191919 !important;
+  }
+  
+  .w-md-editor-text-input {
+    border: none;
+    border-radius: none;
+    font-family: Inter, sans-serif !important;
+    resize: none !important;
+  }
+  
+  .w-md-editor-text-input:focus {
+    border: none;
+    border-radius: none;
+    outline: none;
+    font-family: Inter, sans-serif !important;
+    resize: none !important;
+  }
+  
+  .code-highlight {
+    background-color: #202020 !important;
+  }
+  

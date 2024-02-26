@@ -10,7 +10,7 @@ const FeedHeaderUI:React.FC = function () {
             <h3 className={style.feed_header_texts_h3}>FEED</h3>
             <p className={style.feed_header_texts_p}>Explore different content you’d love</p>
         </div>
-        <NavLink to={"/feeds"} className={style.feed_header_btn}>
+        <NavLink to={"/publish"} className={style.feed_header_btn}>
             <PenIcon />
             <p className={style.feed_header_btn_p}>Post a content</p>
         </NavLink>

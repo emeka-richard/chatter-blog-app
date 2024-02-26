@@ -20,6 +20,7 @@
   --not-soo-black: #55524F;
   --active-blue: rgb(37, 106, 243);
   --just-grey: #d0d0d0;
+  /* --light-grey: #e6e6e6dc; */
 }
 
 *,
@@ -83,4 +84,8 @@ button {
 
 .active {
   border-bottom: 4px solid var(--purple-color);
+}
+
+svg {
+  cursor: pointer;
 }

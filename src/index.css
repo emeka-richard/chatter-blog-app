@@ -3,7 +3,7 @@
 :root {
   --default-background: #f9f9f9f4;
 
-  --default-color: rgba(0, 0, 0, 0.944);
+  --default-color: rgba(22, 22, 22, 0.88);
   --default-grey-color: #d0d0d0f4;
   --primary-grey: #CED4DA;
   --purple-color: #543EE0;
@@ -20,7 +20,7 @@
   --not-soo-black: #55524F;
   --active-blue: rgb(37, 106, 243);
   --just-grey: #d0d0d0;
-  /* --light-grey: #e6e6e6dc; */
+  --light-grey: #e6e6e6dc;
 }
 
 *,

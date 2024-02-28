@@ -5,7 +5,7 @@ import style from "./app-navbar-component.module.css"
 
 const AnalyticsItem:React.FC = function () {
   return (
-    <NavLink to={"/feeds"} className={style.analytics_item_container}>
+    <NavLink to={"/analytics"} className={style.analytics_item_container}>
       <BlurChartIcon />
       <p className={style.analytics_item_p}>Analytics</p>
     </NavLink>

@@ -1,94 +1,15 @@
 import React, { useState } from "react";
 import style from "./feeds-UI.module.css";
-import graceIMG from "../../../assets/images/grace-article-img.png";
-import oluwatobiIMG from "../../../assets/images/oluwatobi-article-img.png";
-import adebobolaIMG from "../../../assets/images/adebobola-article-img.pmg.png";
-import adebobolaAVI from "../../../assets/images/user-2.png";
-import oluwatobiAVI from "../../../assets/images/user-4.png";
-import graceAVI from "../../../assets/images/user-3.png";
 import { ReactComponent as OpenBookIcon } from "../../../assets/svg/openbook.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/svg/commentIcon.svg";
 import { ReactComponent as LikeIcon } from "../../../assets/svg/heartLoveIcon.svg";
 import { ReactComponent as DarkChart } from "../../../assets/svg/darkClearChartIcon.svg";
+import { writerProps } from "./Feeds-WriterProps";
 
-interface WriterProps {
-  id: number;
-  name: string;
-  writerAVI: string;
-  occupation: string;
-  publicationTime: string;
-  readingTime: string;
-  publicatonArticleTitle: string;
-  publicationArticle: string;
-  publicationIMG: string;
-  publicationComments: number;
-  publicationLikes: number;
-  publicationViews: number;
-}
+
+
 
 const FeedsForYouContentUI: React.FC = function () {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
-  const handleViewEnter = (): void => {
-    setIsHovered(!isHovered);
-  };
-
-  // const handleMouseLeave = (): void => {
-  //   setIsHovered(false);
-  // };
-
-  const getDate = (date: string) => {
-    return new Date(date).toDateString().slice(4, 15);
-  };
-
-  const writerProps: WriterProps[] = [
-    {
-      id: 1,
-      name: "Grace Ikpang",
-      writerAVI: graceAVI,
-      occupation: "Product designer",
-      publicationTime: getDate("May 25, 2023"),
-      readingTime: "10",
-      publicatonArticleTitle: "Starting out as a Product designer",
-      publicationArticle:
-        "Embarking on a journey as a product designer can be an exhilarating and fulfilling experience. As a profession that bridges the realms of art, technology, and problem-solving, product design offers an opportunity to shape the way people interact with the world around them.",
-      publicationIMG: graceIMG,
-      publicationComments: 200,
-      publicationLikes: 120,
-      publicationViews: 2980,
-    },
-    {
-      id: 2,
-      name: "Oluwatobi Ogunniyi",
-      writerAVI: oluwatobiAVI,
-      occupation: "Software developer",
-      publicationTime: getDate("May 22, 2023"),
-      readingTime: "10",
-      publicatonArticleTitle: "Using CSS Selectors",
-      publicationArticle:
-        "Cascading Style Sheets (CSS) is a fundamental technology that lies at the heart of modern web design. It empowers developers and designers to transform plain HTML into visually captivating and interactive web pages.",
-      publicationIMG: oluwatobiIMG,
-      publicationComments: 200,
-      publicationLikes: 120,
-      publicationViews: 2980,
-    },
-    {
-      id: 3,
-      name: "Adebobola Muhydeen",
-      writerAVI: adebobolaAVI,
-      occupation: "Political analyst",
-      publicationTime: getDate("May 21, 2023"),
-      readingTime: "10",
-      publicatonArticleTitle:
-        "The Impact of social media on Political discourse",
-      publicationArticle:
-        "In the era of digital communication, social media platforms have become pervasive in our daily lives, revolutionizing the way we connect, share information, and engage with the world.",
-      publicationIMG: adebobolaIMG,
-      publicationComments: 200,
-      publicationLikes: 120,
-      publicationViews: 2980,
-    },
-  ];
 
   return (
     <>

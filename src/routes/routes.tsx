@@ -17,6 +17,10 @@ import FeedsRecentContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feed-Recent-Conte
 import CreatePostUI from "../UI/AppLayout-UI/Create-Article-UIs/Create-Post-UI";
 import PublishArticleLayout from "../layouts/PublishArticleLayout";
 import ArticlePreview from "../UI/AppLayout-UI/Create-Article-UIs/Preview-Article-UI";
+import AnalyticsUI from "../UI/AppLayout-UI/Analytics-UIs/Analytics-UI";
+import AnalyticsEachArticleUI from "../UI/AppLayout-UI/Analytics-UIs/Analytics-Each-Article-UI";
+import AnalyticsAllArticleUI from "../UI/AppLayout-UI/Analytics-UIs/Analytics-All-Articles-UI";
+
 
 const router = createBrowserRouter([
   {
@@ -108,12 +112,21 @@ const router = createBrowserRouter([
           },
 
         ]
-        // element: <CreateArticleUI />
       },
-      // {
-      //   path: "/preview",
-      //   element: <CreateArticleUI />
-      // },
+      {
+        path:"/analytics",
+        element: <AnalyticsUI />,
+        children: [
+          {
+            index: true,
+            element: <AnalyticsAllArticleUI />, 
+          },
+          {
+            path: "/analytics/:id",
+            element: <AnalyticsEachArticleUI />,
+          }
+        ]
+      },
     ],
   },
 ]);

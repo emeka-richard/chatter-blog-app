@@ -1,42 +1,37 @@
-.w-md-editor {
-    border-radius: 1.5rem;
-    background-color: #191919 !important;
-    font-family: Inter, sans-serif !important;
-  }
-  
-  .w-md-editor-toolbar {
-    background-color: #191919 !important;
-    padding: 1rem !important;
-    border-bottom: 1px solid #000 !important;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
-  }
-  
-  .w-md-editor-content {
-    padding: 1rem;
-    resize: none !important;
-  }
-  
-  .wmde-markdown-color {
-    background-color: #191919 !important;
-  }
-  
-  .w-md-editor-text-input {
-    border: none;
-    border-radius: none;
-    font-family: Inter, sans-serif !important;
-    resize: none !important;
-  }
-  
-  .w-md-editor-text-input:focus {
-    border: none;
-    border-radius: none;
-    outline: none;
-    font-family: Inter, sans-serif !important;
-    resize: none !important;
-  }
-  
-  .code-highlight {
-    background-color: #202020 !important;
-  }
-  
+.wmde-markdown {
+  background-color: var(--default-background) !important;
+  border-radius: 10px !important;
+  padding-top: 20px !important;
+  border: none !important;
+  /* border: 1px solid var(--just-grey)!important; */
+  color: var(--primary-black) !important;
+}
+
+[class^="language"] {
+  color: var(--just-grey) !important;
+}
+
+/* MDEditor CSS */
+.wmde-markdown-var {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 45vh !important;
+  background-color: #f0f0f0 !important;
+  border-radius: 6px !important;
+  padding: 20px !important;
+  border: 1px solid var(--just-grey);
+  color: var(--primary-black);
+}
+.w-md-editor-toolbar {
+  margin-bottom: 20px;
+}
+.w-md-editor-content {
+
+}
+.w-md-editor-bar {
+
+}
+.w-md-editor-text-input {
+  padding: 0;
+}
+

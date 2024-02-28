@@ -1,46 +1,76 @@
-import React from "react";
-// import React, { useRef, useState, ChangeEvent } from "react";
+import React, { createContext, useState } from "react";
 import style from "./layouts.module.css";
-import { Outlet } from "react-router-dom";
-// import { ReactComponent as ImgIcon } from "../../../assets/svg/imgIcon.svg";
-// import { ReactComponent as VidIcon } from "../../../assets/svg/vidIcon.svg";
-// import { ReactComponent as PlusIcon } from "../../../assets/svg/plusIcon.svg";
-// import { ReactComponent as TimesIcon } from "../../../assets/svg/timesIcon.svg";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+
+interface ArticleData {
+  coverImgUrl: string | null;
+  articleTag: any | null;
+  articleTitle: string | null;
+  articleContent: string | undefined;
+}
+
+interface ArticleContextType {
+  articleData: ArticleData;
+  setArticleData: React.Dispatch<React.SetStateAction<ArticleData>>;
+}
+
+export const ArticleContext = createContext<ArticleContextType | undefined>(
+  undefined
+);
 
 const PublishArticleLayout: React.FC = () => {
-//   const [openMediaSelect, setOpenMediaSelect] = useState<boolean>(false);
-//   const imgRef = useRef<HTMLInputElement | null>(null);
-//   const [image, setImage] = useState<File | null>(null);
-//   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  
-//   const handleOpenMediaSelect = () => {
-//     setOpenMediaSelect(!openMediaSelect);
-//   };
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [articleData, setArticleData] = useState<ArticleData>({
+    coverImgUrl: "",
+    articleTag: "",
+    articleTitle: "",
+    articleContent: "",
+  });
+  // const [isPreviewed, setIsPreviewed] = useState<boolean>(false);
 
-//   const handleImgTrigger = () => {
-//     setOpenMediaSelect(!openMediaSelect);
-//     imgRef.current?.click();
-//   };
-
-//   const handleImgUpload = (e: ChangeEvent<HTMLInputElement>) => {
-//     const file = e.target.files?.[0];
-//     console.log(file)
-//     if (file) {
-//       setImage(file);
-//         const url = URL.createObjectURL(file);
-//         setImageUrl(url)
-//         console.log(imageUrl);  
-//     }
-//   };
+  const handleActionClick = (buttonName: string) => {
+    if(!articleData.articleContent) return;
+    if(buttonName === "preview"){
+      navigate("/article/preview")
+      // setIsPreviewed(true)
+    }
+    if(buttonName === "edit"){
+      navigate("/article/publish")
+      // setIsPreviewed(false)
+    }
+    if(buttonName === "publish") return;
+  };
 
   return (
     <div className={style.create_post_wrapper}>
       <section className={style.create_post_container}>
-        {/* <div className={style.create_post_header}>
-          <NavLink to={"/article/preview"} className={style.create_post_header_btn}>Preview</NavLink>
-          <NavLink to={"/article/publish"} className={style.create_post_header_btn}>Publish</NavLink>
-        </div> */}
-        <Outlet />
+        <ArticleContext.Provider value={{ articleData, setArticleData }}>
+          <div className={style.create_post_header_btns_container}>
+            {location.pathname.includes("preview") && (
+              <button onClick={()=> handleActionClick("edit")} className={style.create_post_header_btn_edit}>
+                Edit
+              </button>
+            )}
+            <div className={style.create_post_header_btns_right}>
+              {!location.pathname.includes("preview") && (
+                <button
+                  onClick={()=> handleActionClick("preview")}
+                  className={articleData.articleContent ? style.create_post_header_btn_preview : style.create_post_header_btn_disabled}
+                >
+                  Preview
+                </button>
+              )}
+              <button
+                onClick={()=> handleActionClick("publish")}
+                className={articleData.articleContent ? style.create_post_header_btn_publish : style.create_post_header_btn_disabled}
+              >
+                Publish
+              </button>
+            </div>
+          </div>
+          <Outlet />
+        </ArticleContext.Provider>
       </section>
     </div>
   );

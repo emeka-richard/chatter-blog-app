@@ -6,7 +6,7 @@ import oluwatobiAVI from "../../../assets/images/user-4.png";
 import graceAVI from "../../../assets/images/user-3.png";
 
 export interface WriterProps {
-  id: number;
+  id: number | string;
   name: string;
   writerAVI: string;
   occupation: string;
@@ -18,6 +18,9 @@ export interface WriterProps {
   publicationComments: number;
   publicationLikes: number;
   publicationViews: number;
+  writterFollowers: string[];
+  profileVisit: number;
+  postList: string[];
 }
 
 const getDate = (date: string) => {
@@ -39,6 +42,11 @@ export const writerProps: WriterProps[] = [
     publicationComments: 200,
     publicationLikes: 120,
     publicationViews: 2980,
+    writterFollowers: ["Jude", "James", "Porch"],
+    profileVisit: 65,
+    postList: [
+      "Embarking on a journey as a product designer can be an exhilarating and fulfilling experience. As a profession that bridges the realms of art, technology, and problem-solving, product design offers an opportunity to shape the way people interact with the world around them.",
+    ]
   },
   {
     id: 2,
@@ -54,6 +62,11 @@ export const writerProps: WriterProps[] = [
     publicationComments: 200,
     publicationLikes: 120,
     publicationViews: 2980,
+    writterFollowers: ["Jude", "James", "Porch", "Manchi"],
+    profileVisit: 97,
+    postList: [
+      "Cascading Style Sheets (CSS) is a fundamental technology that lies at the heart of modern web design. It empowers developers and designers to transform plain HTML into visually captivating and interactive web pages.",
+    ]
   },
   {
     id: 3,
@@ -69,5 +82,10 @@ export const writerProps: WriterProps[] = [
     publicationComments: 200,
     publicationLikes: 120,
     publicationViews: 2980,
+    writterFollowers: ["Jude", "James", "Porch", "Monye", "Toby", "Richard"],
+    profileVisit: 45,
+    postList: [
+      "In the era of digital communication, social media platforms have become pervasive in our daily lives, revolutionizing the way we connect, share information, and engage with the world.",
+    ]
   },
 ];

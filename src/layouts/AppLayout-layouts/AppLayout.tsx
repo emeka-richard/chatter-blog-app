@@ -10,8 +10,6 @@ const AppLayout: React.FC = function () {
       <AppNavBarAsideLayout />
       <AppNavbarTopLayout />
       <section className={style.app_layout_outlet_wrapper}>
-        {/* <div className={style.app_layout_outlet_container}>
-        </div> */}
         <Outlet />
       </section>
     </main>

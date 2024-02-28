@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import style from "./analytics.module.css"
+import style from "./appLayout.module.css"
 
 const AnalyticsUI: React.FC = function () {
   return (

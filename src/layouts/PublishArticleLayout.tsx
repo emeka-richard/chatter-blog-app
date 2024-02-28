@@ -27,17 +27,14 @@ const PublishArticleLayout: React.FC = () => {
     articleTitle: "",
     articleContent: "",
   });
-  // const [isPreviewed, setIsPreviewed] = useState<boolean>(false);
 
   const handleActionClick = (buttonName: string) => {
     if(!articleData.articleContent) return;
     if(buttonName === "preview"){
       navigate("/article/preview")
-      // setIsPreviewed(true)
     }
     if(buttonName === "edit"){
       navigate("/article/publish")
-      // setIsPreviewed(false)
     }
     if(buttonName === "publish") return;
   };

@@ -4,12 +4,6 @@ import FeedHeaderUI from './Feeds-header-UI'
 import FeedsNavLinkUI from './Feeds-NavLink-UI'
 import { Outlet } from 'react-router-dom'
 
-// interface FeedsUIProps {
-//   children: ReactNode;
-// }
-
-// const FeedsUI: React.FC<FeedsUIProps> = ({ children }) => {
-
 
 const FeedsUI:React.FC = function () {
   return (

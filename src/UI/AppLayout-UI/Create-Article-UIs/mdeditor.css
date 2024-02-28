@@ -3,7 +3,6 @@
   border-radius: 10px !important;
   padding-top: 20px !important;
   border: none !important;
-  /* border: 1px solid var(--just-grey)!important; */
   color: var(--primary-black) !important;
 }
 
@@ -25,12 +24,12 @@
 .w-md-editor-toolbar {
   margin-bottom: 20px;
 }
-.w-md-editor-content {
+/* .w-md-editor-content {
 
 }
 .w-md-editor-bar {
 
-}
+} */
 .w-md-editor-text-input {
   padding: 0;
 }

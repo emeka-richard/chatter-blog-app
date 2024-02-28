@@ -7,8 +7,6 @@ import { ReactComponent as ImgIcon } from "../../../assets/svg/imgIcon.svg";
 import { ReactComponent as VidIcon } from "../../../assets/svg/vidIcon.svg";
 import { ReactComponent as PlusIcon } from "../../../assets/svg/plusIcon.svg";
 import { ReactComponent as TimesIcon } from "../../../assets/svg/timesIcon.svg";
-import MDEditor from "@uiw/react-md-editor";
-import "./mdeditor.css";
 
 const animatedComponents = makeAnimated();
 

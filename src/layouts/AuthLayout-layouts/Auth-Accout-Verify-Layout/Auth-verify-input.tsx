@@ -24,7 +24,6 @@ const VerificationCodeInput: React.FC<Props> = ({ codeLength, onSubmit }) => {
   };
 
   return (
-    // <div className={style.auth_verify_input_form_wrapper}>
     <form onSubmit={handleSubmit} className={style.auth_verify_input_form}>
       <div className={style.auth_verify_input_element_wrapper}>
         {code.map((input, index) => (
@@ -42,7 +41,6 @@ const VerificationCodeInput: React.FC<Props> = ({ codeLength, onSubmit }) => {
         Create account
       </button>
     </form>
-    // </div>
   );
 };
 

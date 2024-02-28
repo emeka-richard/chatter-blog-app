@@ -1,7 +1,6 @@
 import React from 'react'
 import SearchBar from '../../components/App-Components/App-Top-Components/Search-bar'
 import { ReactComponent as NotificationIcon } from "../../assets/svg/notificationBell.svg"
-// import userImg from "../../assets/images/user-2.png"
 import style from "./appLayout.module.css"
 
 const AppNavbarTopLayout:React.FC = function () {

@@ -12,6 +12,7 @@ const FeedsNavLinkUI: React.FC = function () {
           transition: `all 200ms ease-in-out`,
         })}
         className={style.feed_navlink_item}
+        aria-label="For you"
       >
         For you
       </NavLink>
@@ -22,6 +23,7 @@ const FeedsNavLinkUI: React.FC = function () {
           transition: `all 200ms ease-in-out`,
         })}
         className={style.feed_navlink_item}
+        aria-label="Featured"
       >
         Featured
       </NavLink>
@@ -32,6 +34,7 @@ const FeedsNavLinkUI: React.FC = function () {
           transition: `all 200ms ease-in-out`,
         })}
         className={style.feed_navlink_item}
+        aria-label="Recent"
       >
         Recent
       </NavLink>

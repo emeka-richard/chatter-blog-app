@@ -1,22 +1,26 @@
-import React from 'react'
-import SearchBar from '../../components/App-Components/App-Top-Components/Search-bar'
-import { ReactComponent as NotificationIcon } from "../../assets/svg/notificationBell.svg"
-import style from "./appLayout.module.css"
+import React from 'react';
+import SearchBar from '../../components/App-Components/App-Top-Components/Search-bar';
+import { ReactComponent as NotificationIcon } from "../../assets/svg/notificationBell.svg";
+import style from "./appLayout.module.css";
 
-const AppNavbarTopLayout:React.FC = function () {
+const AppNavbarTopLayout: React.FC = function () {
   return (
     <section className={style.appNav_top_layout_wrapper}>
+      {/* SearchBar component for searching */}
       <div className={style.appNav_top_layout_searchbar_container}>
-      <SearchBar />
+        <SearchBar />
       </div>
-        <div className={style.appNav_top_layout_container}>
-            <div className={style.appNav_top_layout_notificationIcon_container}>
-                <NotificationIcon />
-            </div>
-            <div className={style.appNav_top_layout_img}></div>
+      {/* Container for notification icon and user image */}
+      <div className={style.appNav_top_layout_container}>
+        {/* Notification icon */}
+        <div className={style.appNav_top_layout_notificationIcon_container}>
+          <NotificationIcon aria-label="Notifications" />
         </div>
+        {/* Placeholder for user image */}
+        <div className={style.appNav_top_layout_img} aria-label="User image"></div>
+      </div>
     </section>
-  )
+  );
 }
 
-export default AppNavbarTopLayout
+export default AppNavbarTopLayout;

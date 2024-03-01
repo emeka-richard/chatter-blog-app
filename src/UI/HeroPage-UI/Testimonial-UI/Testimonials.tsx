@@ -21,16 +21,22 @@ const Testimonials: React.FC = () => {
 
   return (
     <section className={style.testimonial_wrapper}>
-      <img src={userTestimonialProp.img} alt="avi.png" className={style.testimonial_user_img}/>
+      {/* User image */}
+      <img src={userTestimonialProp.img} alt={`${userTestimonialProp.name}'s avatar`} className={style.testimonial_user_img} />
       <div className={style.testimonial_texts_section}>
         <div className={style.testimonial_texts}>
+          {/* Testimonial text */}
           <p className={style.testimonial_texts_p1}>"{userTestimonialProp.testimony}"</p>
+          {/* User information */}
           <p className={style.testimonial_texts_p2}>
             <span className={style.testimonial_texts_span}>{userTestimonialProp.name}, </span>
             {userTestimonialProp.workPlace}
           </p>
         </div>
-        <NavLink to={"/auth/sign/register"} className={style.testimonial_btn}>Join chatter</NavLink>
+        {/* Button to join chatter */}
+        <NavLink to={"/auth/sign/register"} className={style.testimonial_btn} aria-label="Join chatter">
+          Join chatter
+        </NavLink>
       </div>
     </section>
   );

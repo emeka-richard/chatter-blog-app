@@ -24,9 +24,6 @@ const CreatePostUI: React.FC = () => {
   // State variables
   const [openMediaSelect, setOpenMediaSelect] = useState<boolean>(false);
   const imgRef = useRef<HTMLInputElement | null>(null);
-  // const [imageUrl, setImageUrl] = useState<string | null>(null);
-  // const [articleTitle, setArticleTitle] = useState<string>("");
-  // const [articleContent, setArticleContent] = useState<string>("");
 
   const articleTags = [
     { value: "Programming", label: "Programming" },
@@ -88,101 +85,113 @@ const CreatePostUI: React.FC = () => {
   };
 
   return (
-    <>
-      <div className={style.create_post_body}>
-        <div className={style.create_post_body_img_tag_container}>
-          <div className={style.create_post_body_img_btn_container}>
+    <div className={style.create_post_body}>
+      <div className={style.create_post_body_img_tag_container}>
+        <div className={style.create_post_body_img_btn_container}>
+          <div
+            onClick={handleOpenMediaSelect}
+            className={
+              openMediaSelect
+                ? style.show
+                : style.create_post_body_img_add_svg_container
+            }
+            tabIndex={0} // Make it focusable
+            role="button" // Indicate it as a button
+            aria-label="Add media"
+          >
+            <PlusIcon />
+          </div>
+          <input
+            ref={imgRef}
+            id="form_img"
+            type="file"
+            onChange={handleImgUpload}
+            style={{ display: "none" }}
+            accept="image/png, image/jpg, image/jpeg"
+          />
+          <div
+            className={
+              openMediaSelect
+                ? style.create_post_body_img_cancel_btn_container
+                : style.show
+            }
+          >
             <div
               onClick={handleOpenMediaSelect}
-              className={
-                openMediaSelect
-                  ? style.show
-                  : style.create_post_body_img_add_svg_container
-              }
+              className={style.create_post_body_img_cancel_svg_container}
+              tabIndex={0} // Make it focusable
+              role="button" // Indicate it as a button
+              aria-label="Cancel"
             >
-              <PlusIcon />
-            </div>
-            <input
-              ref={imgRef}
-              id="form_img"
-              type="file"
-              onChange={handleImgUpload}
-              style={{ display: "none" }}
-              accept="image/png, image/jpg, image/jpeg"
-            />
-            <div
-              className={
-                openMediaSelect
-                  ? style.create_post_body_img_cancel_btn_container
-                  : style.show
-              }
-            >
-              <div
-                onClick={handleOpenMediaSelect}
-                className={style.create_post_body_img_cancel_svg_container}
-              >
-                <TimesIcon />
-              </div>
-            </div>
-            <div
-              className={
-                openMediaSelect ? style.create_post_media_container : style.show
-              }
-            >
-              <div
-                onClick={handleImgTrigger}
-                className={style.create_post_media_img}
-              >
-                <ImgIcon />
-              </div>
-              <div className={style.create_post_media_video}>
-                <VidIcon />
-              </div>
+              <TimesIcon />
             </div>
           </div>
-          <div className={style.create_post_body_tag_container}>
-            <div className={style.create_post_body_tag_inner_container}>
-              <h3 className={style.create_post_body_tag_h3}>Tag: </h3>
-              {/* Select component for choosing multiple tags */}
-              <Select
-                closeMenuOnSelect={false}
-                components={animatedComponents}
-                defaultValue={articleTags[0]}
-                isMulti
-                options={articleTags}
-                onChange={handleSelectedItems}
-                styles={colourStyles}
-              />
+          <div
+            className={
+              openMediaSelect ? style.create_post_media_container : style.show
+            }
+          >
+            <div
+              onClick={handleImgTrigger}
+              className={style.create_post_media_img}
+              tabIndex={0} // Make it focusable
+              role="button" // Indicate it as a button
+              aria-label="Add image"
+            >
+              <ImgIcon />
+            </div>
+            <div className={style.create_post_media_video}>
+              <VidIcon />
             </div>
           </div>
         </div>
-        {articleData.coverImgUrl && (
-          <div
-            style={{ backgroundImage: `url(${articleData.coverImgUrl})` }}
-            className={style.img_holder}
-          ></div>
-        )}
-        <div className={style.create_post_input_wrapper}>
-          <div className={style.create_post_input_container}>
-            <input
-              id="form_title"
-              type="text"
-              placeholder="Title"
-              className={style.create_post_input_title}
-              value={articleData.articleTitle ?? ''} // Use nullish coalescing operator to handle null values
-              onChange={(e) => handleTextTitle(e.target.value)}
+        <div className={style.create_post_body_tag_container}>
+          <div className={style.create_post_body_tag_inner_container}>
+            <h3 className={style.create_post_body_tag_h3}>Tag: </h3>
+            {/* Select component for choosing multiple tags */}
+            <Select
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              defaultValue={articleTags[0]}
+              isMulti
+              options={articleTags}
+              onChange={handleSelectedItems}
+              styles={colourStyles}
+              aria-label="Choose tags"
             />
-            <textarea
-              id="form_notes"
-              placeholder="Write a post......."
-              className={style.create_post_input_note}
-              value={articleData.articleContent}
-              onChange={handleTextContent}
-            ></textarea>
           </div>
         </div>
       </div>
-    </>
+      {articleData.coverImgUrl && (
+        <div
+          style={{ backgroundImage: `url(${articleData.coverImgUrl})` }}
+          className={style.img_holder}
+          tabIndex={0} // Make it focusable
+          aria-label="Uploaded image preview"
+        ></div>
+      )}
+      <div className={style.create_post_input_wrapper}>
+        <div className={style.create_post_input_container}>
+          <input
+            id="form_title"
+            type="text"
+            placeholder="Title"
+            className={style.create_post_input_title}
+            value={articleData.articleTitle ?? ''}
+            onChange={(e) => handleTextTitle(e.target.value)}
+            aria-label="Article title"
+          />
+          <textarea
+            id="form_notes"
+            placeholder="Write a post......."
+            className={style.create_post_input_note}
+            value={articleData.articleContent}
+            onChange={handleTextContent}
+            aria-label="Article content"
+          ></textarea>
+        </div>
+      </div>
+    </div>
   );
 };
 

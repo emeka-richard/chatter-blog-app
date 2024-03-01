@@ -1,131 +1,218 @@
+import React from "react";
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import HeroPageLayout from "../layouts/HeroPageLayout";
-import AuthLayout from "../layouts/AuthLayout-layouts/AuthLayout";
-import AppLayout from "../layouts/AppLayout-layouts/AppLayout";
-import ErrorPage from "../UI/Error-Page";
-import HeroPageUI from "../UI/HeroPage-UI/HeroPage-UI";
-import RegisterUI from "../UI/AuthPage-UI/Register-UIs/Register-UI";
-import AuthFrame from "../layouts/AuthLayout-layouts/Auth-Frame";
-import AuthRegLogFrame from "../layouts/AuthLayout-layouts/Auth-Reg-Log-Layout/Auth-Reg-Log-Frame";
-import AuthAccountVerfication from "../layouts/AuthLayout-layouts/Auth-Accout-Verify-Layout/Auth-acct-verfication";
-import LoginUI from "../UI/AuthPage-UI/Login-UI/Login-UI";
-import FeedsUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-UI";
-import FeedsForYouContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-ForYou-Content-UI";
-import FeedsFeaturedContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feeds-Featured-Content-UI";
-import FeedsRecentContentUI from "../UI/AppLayout-UI/Feeds-UIs/Feed-Recent-Content-UI";
-// import CreateArticleUI from "../UI/AppLayout-UI/Create-Article-UIs/Create-Article-UI";
-import CreatePostUI from "../UI/AppLayout-UI/Create-Article-UIs/Create-Post-UI";
-import PublishArticleLayout from "../layouts/PublishArticleLayout";
-import ArticlePreview from "../UI/AppLayout-UI/Create-Article-UIs/Preview-Article-UI";
-import AnalyticsUI from "../layouts/AppLayout-layouts/AnalyticsLayout";
-import AnalyticsEachArticleUI from "../UI/AppLayout-UI/Analytics-UIs/Analytics-Each-Article-UI";
-import AnalyticsAllArticleUI from "../UI/AppLayout-UI/Analytics-UIs/Analytics-All-Articles-UI";
 
+// Import lazy and Suspense for lazy loading
+const { lazy, Suspense } = React;
+
+// Lazy load the components
+const HeroPageLayout = lazy(() => import("../layouts/HeroPageLayout"));
+const AuthLayout = lazy(() => import("../layouts/AuthLayout-layouts/AuthLayout"));
+const AppLayout = lazy(() => import("../layouts/AppLayout-layouts/AppLayout"));
+const ErrorPage = lazy(() => import("../UI/Error-Page"));
+const ProtectedRouteAuth = lazy(() => import("../middlewares/Protected-Route-Auth"));
+const HeroPageUI = lazy(() => import("../UI/HeroPage-UI/HeroPage-UI"));
+const RegisterUI = lazy(() => import("../UI/AuthPage-UI/Register-UIs/Register-UI"));
+const AuthFrame = lazy(() => import("../layouts/AuthLayout-layouts/Auth-Frame"));
+const AuthRegLogFrame = lazy(() => import("../layouts/AuthLayout-layouts/Auth-Reg-Log-Layout/Auth-Reg-Log-Frame"));
+const AuthAccountVerification = lazy(()=> import("../layouts/AuthLayout-layouts/Auth-Accout-Verify-Layout/Auth-acct-verfication"))
+const LoginUI = lazy(() => import("../UI/AuthPage-UI/Login-UI/Login-UI"));
+const FeedsUI = lazy(() => import("../UI/AppLayout-UI/Feeds-UIs/Feeds-UI"));
+const FeedsForYouContentUI = lazy(() => import("../UI/AppLayout-UI/Feeds-UIs/Feeds-ForYou-Content-UI"));
+const FeedsFeaturedContentUI = lazy(() => import("../UI/AppLayout-UI/Feeds-UIs/Feeds-Featured-Content-UI"));
+const FeedsRecentContentUI = lazy(() => import("../UI/AppLayout-UI/Feeds-UIs/Feed-Recent-Content-UI"));
+const CreatePostUI = lazy(() => import("../UI/AppLayout-UI/Create-Article-UIs/Create-Post-UI"));
+const PublishArticleLayout = lazy(() => import("../layouts/PublishArticleLayout"));
+const ArticlePreview = lazy(() => import("../UI/AppLayout-UI/Create-Article-UIs/Preview-Article-UI"));
+const AnalyticsUI = lazy(() => import("../layouts/AppLayout-layouts/AnalyticsLayout"));
+const AnalyticsEachArticleUI = lazy(() => import("../UI/AppLayout-UI/Analytics-UIs/Analytics-Each-Article-UI"));
+const AnalyticsAllArticleUI = lazy(() => import("../UI/AppLayout-UI/Analytics-UIs/Analytics-All-Articles-UI"));
 
 const router = createBrowserRouter([
   {
-    element: <HeroPageLayout />,
-    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroPageLayout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
-        element: <HeroPageUI />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <HeroPageUI />
+          </Suspense>
+        ),
       },
     ],
   },
   {
-    element: <AuthLayout />,
-    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <AuthLayout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
       {
         path: "/auth",
-        // element: <div>This is the auth route <Outlet /> </div>,
-        element: <AuthFrame />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AuthFrame />
+          </Suspense>
+        ),
         children: [
           {
             path: "/auth/sign",
-            element: <AuthRegLogFrame />,
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <AuthRegLogFrame />
+              </Suspense>
+            ),
             children: [
               {
                 index: true,
-                element: <Navigate to={"/auth/sign/register"} />, 
-              },    
+                element: <Navigate to={"/auth/sign/register"} />,
+              },
               {
                 path: "/auth/sign/login",
-                element: <LoginUI />,
-                // element: <div>This is where the login form is displayed</div>,
+                element: (
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <LoginUI />
+                  </Suspense>
+                ),
               },
               {
                 path: "/auth/sign/register",
-                // element: <div>This is the auth/sign/register route</div>,
-                element: <RegisterUI />,
+                element: (
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <RegisterUI />
+                  </Suspense>
+                ),
               },
             ],
           },
           {
             path: "/auth/account-verification",
-            element: <AuthAccountVerfication />,
-            // element: <div>This holds the verification area</div>,
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<AuthAccountVerification />} />
+              </Suspense>
+            ),
           },
         ],
       },
     ],
   },
   {
-    element: <AppLayout />,
-    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProtectedRouteAuth element={<AppLayout />} />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
       {
         path: "/feeds",
-        element: <FeedsUI />,
-        
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <FeedsUI />
+          </Suspense>
+        ),
         children: [
           {
             index: true,
-            element: <Navigate to={"/feeds/all"} />, 
+            element: <Navigate to={"/feeds/all"} />,
           },
           {
             path: "/feeds/all",
-            element: <FeedsForYouContentUI />
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<FeedsForYouContentUI />} />
+              </Suspense>
+            ),
           },
           {
             path: "/feeds/featured",
-            element: <FeedsFeaturedContentUI />,
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<FeedsFeaturedContentUI />} />
+              </Suspense>
+            ),
           },
           {
             path: "/feeds/recent",
-            element: <FeedsRecentContentUI />,
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<FeedsRecentContentUI />} />
+              </Suspense>
+            ),
           },
         ],
       },
       {
         path: "/article",
-        element: <PublishArticleLayout />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProtectedRouteAuth element={<PublishArticleLayout />} />
+          </Suspense>
+        ),
         children: [
           {
             path: "/article/publish",
-            element: <CreatePostUI />
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<CreatePostUI />} />
+              </Suspense>
+            ),
           },
           {
             path: "/article/preview",
-            element: <ArticlePreview />
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<ArticlePreview />} />
+              </Suspense>
+            ),
           },
-
-        ]
+        ],
       },
       {
-        path:"/analytics",
-        element: <AnalyticsUI />,
+        path: "/analytics",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProtectedRouteAuth element={<AnalyticsUI />} />
+          </Suspense>
+        ),
         children: [
           {
             index: true,
-            element: <AnalyticsAllArticleUI />, 
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <AnalyticsAllArticleUI />
+              </Suspense>
+            ),
           },
           {
             path: "/analytics/:id",
-            element: <AnalyticsEachArticleUI />,
-          }
-        ]
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProtectedRouteAuth element={<AnalyticsEachArticleUI />} />
+              </Suspense>
+            ),
+          },
+        ],
       },
     ],
   },

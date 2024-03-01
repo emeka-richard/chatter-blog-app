@@ -9,13 +9,22 @@ const Welcome: React.FC = function () {
     "Unleash the Power of Words, Connect with Like-minded Readers and Writers";
 
   return (
-    <section className={style.welcome_wrapper}>
+    <section id="home" className={style.welcome_wrapper}>
       <div className={style.welcome_container}>
-      <div className={style.welcome_inner_container}>
-        <h2 className={style.welcome_h2}>{firstNote}</h2>
-        <p className={style.welcome_p}>{secondNote}</p>
-        <NavLink to={"/auth/sign/register"} className={style.welcome_button}>Get started</NavLink>
-      </div>
+        <div className={style.welcome_inner_container}>
+          {/* Heading for the welcome note */}
+          <h2 className={style.welcome_h2}>{firstNote}</h2>
+          {/* Description of the welcome message */}
+          <p className={style.welcome_p}>{secondNote}</p>
+          {/* Button to navigate to the registration page */}
+          <NavLink
+            to={"/auth/sign/register"}
+            className={style.welcome_button}
+            aria-label="Get started"
+          >
+            Get started
+          </NavLink>
+        </div>
       </div>
     </section>
   );

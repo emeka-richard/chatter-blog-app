@@ -1,21 +1,17 @@
-import React from 'react'
-import style from "./authLayout.module.css"
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import style from './authLayout.module.css';
+import AuthLayoutTexts from './Auth-texts';
 
-
-const AuthLayoutTexts: React.FC = function () {
-  const title: string = "CHATTER";
-  const note1: string =
-    "Unleash the Power of Words, Connect with Like-minded Readers and Writers";
-
-
+const AuthLayout: React.FC = function () {
   return (
-    <section className={style.auth_texts_wrapper}>
-      <div className={style.auth_texts_container}>
-        <h1 className={style.auth_texts_h1}>{title}</h1>
-        <p className={style.auth_texts_p}>{note1}</p>
-      </div>
-    </section>
-  )
-}
+    <main className={style.auth_layout_wrapper}>
+      {/* Include textual content for authentication layout */}
+      <AuthLayoutTexts />
+      {/* Outlet renders the child routes */}
+      <Outlet />
+    </main>
+  );
+};
 
-export default AuthLayoutTexts
+export default AuthLayout;

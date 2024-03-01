@@ -5,7 +5,7 @@ import AboutWhyJoin from './About-why-join'
 
 const About: React.FC = function () {
   return (
-    <section className={style.about_wrapper}>
+    <section id='about' className={style.about_wrapper}>
         <AboutChatter />
         <AboutWhyJoin />
     </section>

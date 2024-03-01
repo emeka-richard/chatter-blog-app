@@ -5,7 +5,8 @@ import { Outlet } from "react-router-dom";
 const AuthFrame: React.FC<{}> = function () {
   return (
     <section className={style.frame_wrapper}>
-        <Outlet/>
+      {/* Outlet renders the child routes */}
+      <Outlet />
     </section>
   );
 };

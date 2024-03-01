@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./about.module.css"
-// import img1 from "../../../assets/images/hero-2.png"
+import style from "./about.module.css";
+import img1 from "../../../assets/images/hero-2.png";
 
 const AboutChatter: React.FC = function () {
   const title: string = "About Chatter";
@@ -13,10 +13,15 @@ const AboutChatter: React.FC = function () {
         <h2 className={style.about_chatter_h2}>{title}</h2>
         <p className={style.about_chatter_p}>{note1}</p>
       </div>
-      {/* <img src={img1} alt="display.png" className={style.about_chatter_img} /> */}
-      <div className={style.about_chatter_img}></div>
+      {/* Background image container with appropriate ARIA role and label */}
+      <div
+        className={style.about_chatter_img}
+        style={{ backgroundImage: `url(${img1})` }}
+        role="img"
+        aria-label="Image description"
+      ></div>
     </div>
   );
-}
+};
 
 export default AboutChatter;

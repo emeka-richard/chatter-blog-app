@@ -4,9 +4,9 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 interface ArticleData {
   coverImgUrl: string | null;
-  articleTag: any | null;
+  articleTag: any[] | null; // Corrected the type to array
   articleTitle: string | null;
-  articleContent: string | undefined;
+  articleContent: string; // Corrected the type to string instead of string | undefined
 }
 
 interface ArticleContextType {
@@ -23,20 +23,20 @@ const PublishArticleLayout: React.FC = () => {
   const navigate = useNavigate();
   const [articleData, setArticleData] = useState<ArticleData>({
     coverImgUrl: "",
-    articleTag: "",
+    articleTag: [],
     articleTitle: "",
     articleContent: "",
   });
 
   const handleActionClick = (buttonName: string) => {
-    if(!articleData.articleContent) return;
-    if(buttonName === "preview"){
-      navigate("/article/preview")
+    if (!articleData.articleContent) return;
+    if (buttonName === "preview") {
+      navigate("/article/preview");
     }
-    if(buttonName === "edit"){
-      navigate("/article/publish")
+    if (buttonName === "edit") {
+      navigate("/article/publish");
     }
-    if(buttonName === "publish") return;
+    if (buttonName === "publish") return;
   };
 
   return (
@@ -45,22 +45,33 @@ const PublishArticleLayout: React.FC = () => {
         <ArticleContext.Provider value={{ articleData, setArticleData }}>
           <div className={style.create_post_header_btns_container}>
             {location.pathname.includes("preview") && (
-              <button onClick={()=> handleActionClick("edit")} className={style.create_post_header_btn_edit}>
+              <button
+                onClick={() => handleActionClick("edit")}
+                className={style.create_post_header_btn_edit}
+              >
                 Edit
               </button>
             )}
             <div className={style.create_post_header_btns_right}>
               {!location.pathname.includes("preview") && (
                 <button
-                  onClick={()=> handleActionClick("preview")}
-                  className={articleData.articleContent ? style.create_post_header_btn_preview : style.create_post_header_btn_disabled}
+                  onClick={() => handleActionClick("preview")}
+                  className={
+                    articleData.articleContent
+                      ? style.create_post_header_btn_preview
+                      : style.create_post_header_btn_disabled
+                  }
                 >
                   Preview
                 </button>
               )}
               <button
-                onClick={()=> handleActionClick("publish")}
-                className={articleData.articleContent ? style.create_post_header_btn_publish : style.create_post_header_btn_disabled}
+                onClick={() => handleActionClick("publish")}
+                className={
+                  articleData.articleContent
+                    ? style.create_post_header_btn_publish
+                    : style.create_post_header_btn_disabled
+                }
               >
                 Publish
               </button>
